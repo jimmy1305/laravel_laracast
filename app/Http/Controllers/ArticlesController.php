@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use Illuminate\Http\Request;
-use App\Http\Requests;
+use Carbon\Carbon;
+use Request;
 use App\Http\Controllers\Controller;
 
 class ArticlesController extends Controller
@@ -16,7 +16,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        //$articles = Article::all();
+        //Get by symbol search Ctrl+Alt+shift+N
+        $articles = Article::latest('published_at')->get();
         return view('articles.index', compact('articles'));
     }
 
@@ -38,7 +40,11 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*return $request;*/
+        //Add to the attribute not exist on object
+        //$input['published_at'] = Carbon::now();
+        Article::create(Request::all());
+        return redirect('articles');
     }
 
     /**
