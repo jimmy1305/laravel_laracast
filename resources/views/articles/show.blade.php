@@ -5,6 +5,6 @@
     <article>
         <h3>{{$article->title}}</h3>
         <div class="body">{{$article->body}}</div>
-        <span>Published at: {{$article->published_at}}</span>
+        <span>Published at: {{Carbon\Carbon::parse($article->published_at)->format('dd/MM/YYY')}}</span>
     </article>
 @stop
