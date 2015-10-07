@@ -14,8 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('test', function () {
+    return view('Test Page');
+});
 
 Route::get('articles','ArticlesController@index');
 Route::post('articles','ArticlesController@store');
 Route::get('articles/create','ArticlesController@create');
 Route::get('articles/{id}','ArticlesController@show');
+
+
