@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('test', function () {
-    return 'Test Page';
+    return view('frontendtemplate');
 });
 
 Route::get('articles','ArticlesController@index');
